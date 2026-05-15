@@ -6,13 +6,14 @@
     "vitest.config.*",
     "cypress.config.*",
     "playwright.config.*",
-    "eslint.config.*"
+    "eslint.config.*",
+    "typed-router.d.ts"
   ],
   "compilerOptions": {
     // Most tools use transpilation instead of Node.js's native type-stripping.
     // Bundler mode provides a smoother developer experience.
     "module": "preserve",
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
 
     // Include Node.js types and avoid accidentally including other `@types/*` packages.
     "types": ["node"],
