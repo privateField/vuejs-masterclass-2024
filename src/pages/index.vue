@@ -1,8 +1,7 @@
 <script setup lang="ts"></script>
-
 <template>
   <div>
     <h1>Home Page</h1>
-    <RouterLink :to="{ name: '/projects/[id]', params: {'id': 123}}">Go to project 123</RouterLink>
+    <RouterLink :to="{ name: '/projects/[id]', params: { 'id': 123 } }">Go to project 123</RouterLink>
   </div>
 </template>
