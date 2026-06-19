@@ -23,10 +23,12 @@ const seedProjects = async (numEntries) => {
 
   for (let i = 0; i < numEntries; i++) {
     const name = faker.lorem.words(3)
+    const description = faker.lorem.paragraphs(2)
 
     projects.push({
       name: name,
       slug: name.toLocaleLowerCase().replace(/ /g, '-'),
+      description: description,
       status: faker.helpers.arrayElement(['in-progress', 'completed']),
       collaborators: faker.helpers.arrayElements([1, 2, 3]),
     })
@@ -52,7 +54,7 @@ const seedTasks = async (numEntries, projectsIds) => {
       description: faker.lorem.paragraph(),
       due_date: faker.date.future(),
       project_id: faker.helpers.arrayElement(projectsIds),
-      collaborators: faker.helpers.arrayElements([1, 2, 3])
+      collaborators: faker.helpers.arrayElements([1, 2, 3]),
     })
   }
 
@@ -66,8 +68,8 @@ const seedTasks = async (numEntries, projectsIds) => {
 }
 
 const seedDatabase = async (numEntriesPerTable) => {
-  const projectIds = (await seedProjects(numEntriesPerTable)).map(project => project.id);
-  await seedTasks(numEntriesPerTable, projectIds);
+  const projectIds = (await seedProjects(numEntriesPerTable)).map((project) => project.id)
+  await seedTasks(numEntriesPerTable, projectIds)
 }
 
 const numEntriesPerTable = 10
